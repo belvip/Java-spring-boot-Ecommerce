@@ -91,3 +91,5 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 * In Spring Data JPA, `JPA Repositories` simplify data access in applications by providing a consistent, high-level API for interacting with databases.
 
 # Configure JPA in our project by configure `com.ecommerce.project.repositories` package
+
+The `@Autowired` annotation in Java, specifically in the Spring Framework, is used for dependency injection. It enables Spring to automatically "inject" a required bean (class instance) into a dependent object at runtime.
