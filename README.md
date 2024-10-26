@@ -54,3 +54,7 @@ public class Category {
 - Create `getAllCategories()` method to have all categories
 - Create `void createCategory(Category category)` to have the logic in interface service
 - Create `CategoryServiceImpl` class to implement `CategoryService` interface 
+
+## Create `@Entity`  to map the paticular class to a table into the data base
+- Map `categoryId` as the ` @Id` annotation.
+- Customize the table's name like this : `@Entity(name = "categories")`
