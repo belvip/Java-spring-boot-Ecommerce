@@ -58,3 +58,5 @@ public class Category {
 ## Create `@Entity`  to map the paticular class to a table into the data base
 - Map `categoryId` as the ` @Id` annotation.
 - Customize the table's name like this : `@Entity(name = "categories")`
+
+* In Spring Data JPA, `JPA Repositories` simplify data access in applications by providing a consistent, high-level API for interacting with databases.
