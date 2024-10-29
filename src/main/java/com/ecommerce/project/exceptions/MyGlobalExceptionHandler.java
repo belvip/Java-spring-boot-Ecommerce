@@ -1,6 +1,7 @@
 // Package declaration for exception handling in the e-commerce project
 package com.ecommerce.project.exceptions;
 
+import com.ecommerce.project.payload.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -35,18 +36,21 @@ public class MyGlobalExceptionHandler {
 
     // This method handles exceptions when a requested resource is not found
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<String> myResourceNotFoundException(ResourceNotFoundException e){
-        String message = e.getMessage(); // Retrieving error message from exception
+    public ResponseEntity<APIResponse> myResourceNotFoundException(ResourceNotFoundException e){
+        String message = e.getMessage();
+        APIResponse apiResponse = new APIResponse(message, false);
+        // String message = e.getMessage(); // Retrieving error message from exception
 
         // Returning a NOT_FOUND (404) response with the exception message
-        return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(APIException.class)
-    public ResponseEntity<String> myAPIException(APIException e){
+    public ResponseEntity<APIResponse> myAPIException(APIException e){
         String message = e.getMessage(); // Retrieving error message from exception
+        APIResponse apiResponse = new APIResponse(message, false);
 
         // Returning a NOT_FOUND (404) response with the exception message
-        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
     }
 }
