@@ -18,11 +18,12 @@ public class CategoryController {
     @Autowired // Fill injection instead of CategoryController(CategoryService categoryService)
     private CategoryService categoryService;  // Create an object of service
 
-    /* public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+   @GetMapping("/echo")
+    public ResponseEntity<String> echoMessage(@RequestParam(name = "message") String message){
+       // public ResponseEntity<String> echoMessage(@RequestParam(name = "message", defaultValue = "Hello world") String message)
+        return new ResponseEntity<>("Echo message : " + message, HttpStatus.OK);
     }
-    */
-    // Methode to get all the category
+
     // http://localhost:8080/api/public/categories
     @GetMapping("/public/categories")
     public ResponseEntity<CategoryResponse> getAllCategories() {
